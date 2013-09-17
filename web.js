@@ -5,11 +5,9 @@ app.use(express.logger());
 
 app.get('/', function(request, response) {
   fs.readFileSync('message.txt', function(err, data){
-    if (err) throw err;
-    var buf = new Buffer(data);
-    response.send(buf.toString());
+   if (err) throw err;
+   response.send("experimentation");
   }); 
-
 });
 
 var port = process.env.PORT || 5000;
