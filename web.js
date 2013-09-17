@@ -4,10 +4,8 @@ var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-  fs.readFileSync('message.txt', function(err, data){
-   if (err) throw err;
-   response.send("experimentation");
-  }); 
+  var data = fs.readFileSync('message.txt', 'utf8');
+  response.send(data);
 });
 
 var port = process.env.PORT || 5000;
